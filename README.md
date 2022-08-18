@@ -1,1 +1,1 @@
-## 4Geeks Machine Learning & AI Bootcamp: Final Project
+## 4Geeks | Machine Learning & AI Bootcamp: Final Project
