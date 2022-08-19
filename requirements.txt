@@ -11,3 +11,7 @@ sklearn
 
 #Pruebas NLP
 TextBlob
+
+#Text processing
+re
+nltk
