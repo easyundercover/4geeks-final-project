@@ -14,3 +14,4 @@ sklearn
 re
 nltk
 wordcloud
+pysentimiento
