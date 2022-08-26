@@ -1,16 +1,9 @@
-# Base ----------------------------------------
 pandas==1.4.2
 numpy>=1.18.5
-
-# Graphics  --------------------------------------
 matplotlib>=3.2.2
 seaborn
 plotly
-
-# Machine learning ----------------------------
 sklearn
-
-#Text processing  ----------------------------
 re
 nltk
 wordcloud
