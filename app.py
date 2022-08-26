@@ -24,8 +24,8 @@ st.subheader('Dataframe')
 st.dataframe(df_ch)
 st.subheader('Nube de palabras')
 col1 = st.columns(1)
-fig1 = px.histogram(df_ch, x='User')
-col1.plotly_chart(fig1, use_container_width=True)
+#fig1 = px.histogram(df_ch, x='LikeCount')
+#col1.plotly_chart(fig1, use_container_width=True)
 
 # Heroku uses the last version of python, but it conflicts with 
 # some dependencies. Low your version by adding a runtime.txt file
