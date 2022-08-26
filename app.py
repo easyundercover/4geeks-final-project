@@ -47,6 +47,8 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.show()
 st.pyplot()
 
+#st.subheader('Cantidad de tweest por User y por sentimiento')
+
 # Heroku uses the last version of python, but it conflicts with 
 # some dependencies. Low your version by adding a runtime.txt file
 # https://stackoverflow.com/questions/71712258/
