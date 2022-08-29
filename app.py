@@ -55,10 +55,33 @@ neg = df_ch[df_ch['sentimiento'] == 'NEG']
 pos = df_ch[df_ch['sentimiento'] == 'POS']
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.title('Tweets de prensa escrita uruguaya')
-st.subheader('Dataframe')
+st.title('Proyecto final: Análisis de tweets de la prensa escrita uruguaya')
+
+st.subheader('Probá el modelo!')
+users = {'Búsqueda':0, 'El País': 1, 'El Observador': 2, 'La República': 3, 'La diaria': 4, 'Brecha': 5}
+personas = ['mujica', 'lacalle', 'vazquez', 'martinez', 'larranaga', 'sendic', 'sartori', 'manini', 'talvi']
+persons = {nombre: idx+5 for idx,nombre in enumerate(personas)}
+
+option_persona = st.selectbox(
+'Elegí una persona',
+personas)
+
+st.write('Persona elegida:', option_persona)
+
+option_medio = st.selectbox(
+'Elegí un medio',
+['Búsqueda', 'El País', 'El Observador', 'La República', 'La diaria', 'Brecha'])
+
+st.write('Medio elegido:', option_medio)
+
+output = predic(my_model, option_medio, option_persona)
+st.subheader('Sentimiento: ' + output)
+
+st.subheader('Datos')
 st.dataframe(df_ch)
+
 st.subheader('Palabras asociadas al sentimiento negativo')
+st.write('En este gráfico se pueden ver las palabras más nombradas que se asocian con sentimientos negativos')
 text = ' '.join(i for i in neg.tweets_clean)
 wordcloud = WordCloud(max_words=100, background_color='White').generate(text)
 plt.style.use('classic')
@@ -68,6 +91,7 @@ plt.show()
 st.pyplot()
 
 st.subheader('Palabras asociadas al sentimiento positivo')
+st.write('En este gráfico se pueden ver las palabras más nombradas que se asocian con sentimientos positivos')
 text = ' '.join(i for i in pos.tweets_clean)
 wordcloud = WordCloud(max_words=100, background_color='White').generate(text)
 plt.style.use('classic')
@@ -75,28 +99,6 @@ plt.figure(figsize = (12,12))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.show()
 st.pyplot()
-
-
-users = {'Búsqueda':0, 'El País': 1, 'El Observador': 2, 'La República': 3, 'La diaria': 4, 'Brecha': 5}
-personas = ['mujica', 'lacalle', 'vazquez', 'martinez', 'larranaga', 'sendic', 'sartori', 'manini', 'talvi']
-persons = {nombre: idx+5 for idx,nombre in enumerate(personas)}
-
-option_persona = st.selectbox(
-'Elige una persona',
-personas)
-
-st.write('Persona elegida:', option_persona)
-
-option_medio = st.selectbox(
-'Elige un medio',
-['Búsqueda', 'El País', 'El Observador', 'La República', 'La diaria', 'Brecha'])
-
-st.write('Medio elegido:', option_medio)
-
-output = predic(my_model, option_medio, option_persona)
-st.subheader('Sentimiento: ' + output)
-
-
 
 #st.subheader('Cantidad de tweest por User y por sentimiento')
 # Heroku uses the last version of python, but it conflicts with 
