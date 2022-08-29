@@ -55,7 +55,7 @@ neg = df_ch[df_ch['sentimiento'] == 'NEG']
 pos = df_ch[df_ch['sentimiento'] == 'POS']
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.title('Proyecto final: Análisis de tweets de la prensa escrita uruguaya')
+st.title('Análisis de tweets de la prensa escrita uruguaya')
 
 st.subheader('Probá el modelo!')
 users = {'Búsqueda':0, 'El País': 1, 'El Observador': 2, 'La República': 3, 'La diaria': 4, 'Brecha': 5}
